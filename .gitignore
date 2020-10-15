@@ -1,0 +1,9 @@
+Scripts
+Scripts/
+/Scripts
+env/
+temp/
+**/__pycache__
+**/*.pyc
+.vscode
+*.ipynb_checkpoints
