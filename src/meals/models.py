@@ -9,3 +9,7 @@ class Meals(models.Model):
     price = models.DecimalField(max_digits=6, decimal_places=2)
     preparation_time = models.IntegerField()   # The time this meal to be prepared
     image = models.ImageField(upload_to='meals/')   # The image for this meal.
+
+
+    def __str__(self):
+        return self.name
