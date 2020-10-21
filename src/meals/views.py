@@ -9,4 +9,5 @@ def meal_list(request):
 
 
 def meal_detail(request, slug):
-    pass
+    meal_detail = Meals.objects.get(slug=slug) # slug=slug means the first one is model field and last one is which we pass from url.
+    return render(request, 'meals/meal_detail.html', {'meal_detail': meal_detail, })
