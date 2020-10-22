@@ -7,10 +7,13 @@
         <div class="row justify-content-center">
             <div class="col-md-8" data-aos="fade-up">
 
-            <h2 class="mb-5 text-center">Menu List with Price</h2>
-            <img src="{{ meal_detail.image.url }}" alt="{{ meal_detail.name }}">
-            <h2>{{ meal_detail }}</h2>
+            <img src="{{ meal_detail.image.url }}" alt="{{ meal_detail.name }}" style="width: 75%; margin-left: auto; margin-right: auto; display: block;">
+            <h2 class="my-4">{{ meal_detail }}</h2>
             <p>{{ meal_detail.description }}</p>
+
+            <p>For: {{meal_detail.people}} People</p>
+            <p>Preparation Time: {{meal_detail.preparation_time}} Minutes</p>
+            <p>Price: ${{meal_detail.price}}</p>
 
             </div>
         </div>
