@@ -1,8 +1,8 @@
 from django.urls import path
-from meals import views
+from reservation import views
 
 app_name = 'reservation'
 
 urlpatterns = [
-    # path('', views.meal_list, name='meal_list'),
+    path('', views.reserve_table, name='reserve_table'),
 ]

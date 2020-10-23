@@ -3,4 +3,5 @@ from reservation.models import Reservation
 
 # Create your views here.
 
-def reserve_table()
+def reserve_table(request):
+    pass
