@@ -95,7 +95,7 @@
             <div class="tab-content" id="pills-tabContent">
               <!-- Category Tab [Now for every category we will see a panel ] Start -->  
               {% for category in categories %}
-                <div class="tab-pane fade show active" id="{{category}}" role="tabpanel" aria-labelledby="{{category}}-tab">
+                <div class="tab-pane fade show" id="{{category}}" role="tabpanel" aria-labelledby="{{category}}-tab">
                   
                   {% for meal in meal_list %}
                     {% if meal.category == category %}  
