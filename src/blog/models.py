@@ -2,6 +2,8 @@ from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
 
+from taggit.managers import TaggableManager
+
 # Create your models here.
 
 class Post(models.Model):
@@ -12,6 +14,7 @@ class Post(models.Model):
     # tags
     category = models.ForeignKey('Category', null=True, on_delete=models.SET_NULL)
     created  = models.DateTimeField(default=timezone.now)
+    tags = TaggableManager(blank=True)
 
     class Meta:
         verbose_name = ' post'
