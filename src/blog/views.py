@@ -11,6 +11,7 @@ def post_list(request):
 
 def post_detail(request, id):
     post_detail = Post.objects.get(id=id)
+    categories = Category.objects.all()
 
-    return render(request, 'post/post_detail.html', {'post_detail':post_detail})
+    return render(request, 'post/post_detail.html', {'post_detail':post_detail, 'categories':categories})
 
