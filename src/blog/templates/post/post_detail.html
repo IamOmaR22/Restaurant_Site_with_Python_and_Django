@@ -108,10 +108,10 @@
                 </div>
                 <div class="sidebar-box">
                     <div class="categories">
-                    <h3>Categories</h3>
-                    {% for cat in categories %}
-                        <li><a href="#">{{ cat }}</a></li>
-                    {% endfor %}
+                        <h3>Categories</h3>
+                        {% for category in categories %}                      
+                            <li><a href="{% url 'blog:post_by_category' category %}">{{ category }}</a></li>
+                        {% endfor %}
                     </div>
                 </div>
 
@@ -139,3 +139,5 @@
     
     </div> <!-- .main-wrap -->
 {% endblock %} 
+
+

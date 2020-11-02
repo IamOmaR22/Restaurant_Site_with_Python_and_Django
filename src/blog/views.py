@@ -27,9 +27,9 @@ def post_by_tag(request, tag):
 
 
 def post_by_category(request, category):
-    post_by_category = Post.objects.filter(category__category_name=category)  # Here category is the name of model field 
+    post_by_category = Post.objects.filter(category__category_name=category)  # Here category_name is the name of Category model's field
     context = {
-        'post_list' : post_by_category ,
+        'post_list' : post_by_category,
     }
 
-    return render(request , 'post/post_list.html' , context)
+    return render(request , 'post/post_list.html', context)
