@@ -118,14 +118,9 @@
                 <div class="sidebar-box">
                     <h3>Tag Cloud</h3>
                     <div class="tagcloud">
-                    <a href="#" class="tag-cloud-link">Life</a>
-                    <a href="#" class="tag-cloud-link">Sport</a>
-                    <a href="#" class="tag-cloud-link">Tech</a>
-                    <a href="#" class="tag-cloud-link">Travel</a>
-                    <a href="#" class="tag-cloud-link">Life</a>
-                    <a href="#" class="tag-cloud-link">Sport</a>
-                    <a href="#" class="tag-cloud-link">Tech</a>
-                    <a href="#" class="tag-cloud-link">Travel</a>
+                        {% for tag in all_tags %}
+                            <a href="{% url 'blog:post_by_tag' tag %}" class="tag-cloud-link">{{ tag }}</a>
+                        {% endfor %}                        
                     </div>
                 </div>
 
@@ -139,5 +134,3 @@
     
     </div> <!-- .main-wrap -->
 {% endblock %} 
-
-
