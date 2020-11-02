@@ -17,7 +17,7 @@ def post_detail(request, id):
 
 
 def post_by_tag(request, tag):
-    post_by_tag = Post.objects.filter(tags__name__in=[tag])
+    post_by_tag = Post.objects.filter(tags__name__in=[tag])  # Here tags is the name of model field 
     context = {
         'post_list' : post_by_tag ,
     }
@@ -27,7 +27,7 @@ def post_by_tag(request, tag):
 
 
 def post_by_category(request, category):
-    post_by_category = Post.objects.filter(category__category_name=category)
+    post_by_category = Post.objects.filter(category__category_name=category)  # Here category is the name of model field 
     context = {
         'post_list' : post_by_category ,
     }

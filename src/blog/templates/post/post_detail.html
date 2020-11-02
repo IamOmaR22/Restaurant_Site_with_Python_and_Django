@@ -35,7 +35,7 @@
                 <div class="tag-widget post-tag-container mb-5 mt-5">
                     <div class="tagcloud">
                     {% for tag in post_detail.tags.all %}
-                        <a href="#" class="tag-cloud-link">{{ tag }}</a>
+                        <a href="{% url 'blog:post_by_tag' tag %}" class="tag-cloud-link">{{ tag }}</a>
                     {% endfor %}
                     </div>
                 </div>
