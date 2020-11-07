@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Post, Category
+from .models import Post, Category, Comment
 from taggit.models import Tag
 
 # Create your views here.
@@ -15,10 +15,13 @@ def post_detail(request, id):
     categories = Category.objects.all()
     all_tags = Tag.objects.all()
 
+    comments = Comment.objects.filter(post=post_detail)
+
     context = {
         'post_detail' : post_detail,
         'categories' : categories,
         'all_tags' : all_tags,
+        'comments' : comments,
     }
 
     return render(request, 'post/post_detail.html', context)
