@@ -8,7 +8,17 @@ def send_email(request):
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
-            pass    
+            subject = form.cleaned_data['subject']
+            from_email = form.cleaned_data['from_email']
+            message = form.cleaned_data['message']
+
+            try : 
+                send_mail(subject,message,from_email,['admin@example.com'])
+
+            except BadHeaderError:
+                return HttpResponse('ivalid header') 
+
+            return redirect('contact:send_success')    
 
     else:
         form = ContactForm()
