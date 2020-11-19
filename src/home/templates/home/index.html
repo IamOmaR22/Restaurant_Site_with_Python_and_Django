@@ -85,60 +85,19 @@
         <div class="section pt-0 pb-0">
 
           <div class="menus d-flex bg-light">
+            
+            {% for meal in meals %}
+              
             <div class="d-flex item">
-              <div class="image" style="background-image: url(img/img_1.jpg);" data-aos="fade"></div>
+              <div class="image" style="background-image: url({{meal.image.url}});" data-aos="fade"></div>
               <div class="text">
-                <h3>Grilled Egg With Garlic</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur illo quisquam saepe quaerat.</p>
-                <p class="price">$5.00</p>
+                <h3>{{meal.name}}</h3>
+                <p>{{meal.description|truncatewords:15}}</p>
+                <p class="price">${{meal.price}}</p>
               </div>
             </div> <!-- .item -->
 
-            <div class="d-flex item">
-              <div class="image order-2 order-md-1"  style="background-image: url(img/img_2.jpg);" data-aos="fade" data-aos-delay="100"></div>
-              <div class="text order-1 order-md-2">
-                <h3>Organic Tomato Salad</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur illo quisquam saepe quaerat.</p>
-                <p class="price">$6.00</p>
-              </div>
-            </div> <!-- .item -->
-
-            <div class="d-flex item">
-              <div class="image order-1 order-md-2 order-lg-2 order-xl-1" style="background-image: url(img/img_3.jpg);" data-aos="fade" data-aos-delay="200"></div>
-              <div class="text order-2 order-md-1 order-lg-1 order-xl-2">
-                <h3>Flatbread</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur illo quisquam saepe quaerat.</p>
-                <p class="price">$9.00</p>
-                
-              </div>
-            </div> <!-- .item -->
-
-            <div class="d-flex item">
-              <div class="image order-2" style="background-image: url(img/img_4.jpg);" data-aos="fade" data-aos-delay="300"></div>
-              <div class="text order-1 mb-3">
-                <h3>Rack Of Lamb</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur illo quisquam saepe quaerat.</p>
-                <p class="price">$13.00</p>
-              </div>
-            </div> <!-- .item -->
-
-            <div class="d-flex item">
-              <div class="image order-1 order-lg-1 order-xl-2" style="background-image: url(img/img_5.jpg);" data-aos="fade" data-aos-delay="400"></div>
-              <div class="text order-2 order-lg-2 order-xl-1">
-                <h3>Eggplant Parmigiana</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur illo quisquam saepe quaerat.</p>
-                <p class="price">$9.00</p>
-              </div>
-            </div> <!-- .item -->
-
-            <div class="d-flex item">
-              <div class="image order-2 order-md-1 order-lg-1 order-xl-2" style="background-image: url(img/img_6.jpg);" data-aos="fade" data-aos-delay="500"></div>
-              <div class="text order-1 order-md-2 order-lg-2 order-xl-1">
-                <h3>Spicy Meatballs</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur illo quisquam saepe quaerat.</p>
-                <p class="price">$7.00</p>
-              </div>
-            </div> <!-- .item -->
+            {% endfor %}
 
           </div>
         </div> <!-- .section -->
@@ -501,4 +460,4 @@
       </div> <!-- .main-wrap -->
       
 
-      {% endblock %}
+{% endblock %}
