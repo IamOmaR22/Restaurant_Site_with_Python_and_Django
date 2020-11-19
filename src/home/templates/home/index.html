@@ -160,6 +160,7 @@
   <!-- Menu List with Price - Meal List & Category Also End -->
 
 
+  <!-- Events and News - Blog Posts & Latest Blog Post (Last One Blog Post) Start -->
   <div class="section bg-light">
     <div class="container">
       <div class="row justify-content-center mb-5" data-aos="fade-up">
@@ -172,39 +173,44 @@
       <div class="row">
         <div class="col-lg-6">
 
-          {% for post in posts %}  
-            <div class="media d-block d-lg-flex mb-5" data-aos="fade-up" data-aos-delay="100">
-              <figure class="mr-4 horizontal">
-                <img src="{{ post.image.url }}" alt="Image placeholder" class="img-fluid">
-              </figure>
-              <div class="media-body">
-                <h3><a href="{% url 'blog:post_detail' post.id %}">{{ post.title }}</a></h3>
-                <p class="post-meta"><span><span class="fa fa-calendar"></span> {{post.created}}</span></p>
-                <p>{{post.content|truncatewords:10}}</p>
-                <p><a href="{% url 'blog:post_detail' post.id %}" class="btn btn-primary btn-outline-primary btn-sm">Read More</a></p>
-              </div>
-            </div> <!-- .media -->
-          {% endfor %}  
+          {% for post in posts %}
+          <div class="media d-block d-lg-flex mb-5" data-aos="fade-up" data-aos-delay="100">
+            <figure class="mr-4 horizontal">
+              <img src="{{ post.image.url }}" alt="Image placeholder" class="img-fluid">
+            </figure>
+            <div class="media-body">
+              <h3><a href="{% url 'blog:post_detail' post.id %}">{{ post.title }}</a></h3>
+              <p class="post-meta"><span><span class="fa fa-calendar"></span> {{post.created}}</span></p>
+              <p>{{post.content|truncatewords:10}}</p>
+              <p><a href="{% url 'blog:post_detail' post.id %}" class="btn btn-primary btn-outline-primary btn-sm">Read
+                  More</a></p>
+            </div>
+          </div> <!-- .media -->
+          {% endfor %}
 
         </div> <!-- .col-md-6 -->
 
         <div class="col-lg-6">
           <div class="media d-block mb-5" data-aos="fade-up" data-aos-delay="400">
             <figure>
-              <a href="#"><img src="img/news_1_large.jpg" alt="Image placeholder" class="img-fluid"></a>
+              <a href="#"><img src="{{latest_post.image.url}}" alt="Image placeholder" class="img-fluid"></a>
             </figure>
             <div class="media-body">
-              <h3><a href="#">Food that are best for your overall health</a></h3>
-              <p class="post-meta"><span><span class="fa fa-calendar"></span> April 22, 2018</span></p>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto illo delectus</p>
-              <p><a href="#" class="btn btn-primary btn-outline-primary btn-sm">Read More</a></p>
+              <h3><a href="{% url 'blog:post_detail' latest_post.id %}">{{latest_post.title}}</a></h3>
+              <p class="post-meta"><span><span class="fa fa-calendar"></span> {{latest_post.created}}</span></p>
+              <p>{{latest_post.content|truncatewords:50}}</p>
+              <p><a href="{% url 'blog:post_detail' latest_post.id %}"
+                  class="btn btn-primary btn-outline-primary btn-sm">Read More</a></p>
             </div>
           </div> <!-- .media -->
         </div>
       </div>
     </div>
   </div> <!-- .section -->
+  <!-- Events and News - Blog Posts & Latest Blog Post (Last One Blog Post) End -->
 
+
+  <!-- Why Choose Us Section Start -->
   <div class="section">
     <div class="container">
       <div class="row justify-content-center mb-5" data-aos="fade-up">
@@ -216,67 +222,31 @@
       </div>
       <div class="row large-gutters">
         <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
-          <img src="img/img_2.jpg" alt="Image placeholder" class="img-fluid rounded">
+          <img src="{% static 'img/img_2.jpg' %}" alt="Image placeholder" class="img-fluid rounded">
         </div>
         <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
           <div class="accordion" id="accordion">
-            <div class="accordion-item">
-              <h3 class="mb-0">
-                <a class="btn-block p-3" data-toggle="collapse" href="#collapseOne" role="button" aria-expanded="true"
-                  aria-controls="collapseOne">Quality Cuisine <span class="icon"></span></a>
-              </h3>
-              <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-                <div class="p-3">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur quae cumque perspiciatis
-                    aperiam accusantium facilis provident aspernatur nisi optio debitis dolorum, est eum eligendi vero
-                    aut ad necessitatibus nulla sit labore doloremque magnam! Ex molestiae, dolor tempora, ad fuga
-                    minima enim mollitia consequuntur, necessitatibus praesentium eligendi officia recusandae culpa
-                    tempore eaque quasi ullam magnam modi quidem in amet. Quod debitis error placeat, tempore quasi
-                    aliquid eaque vel facilis culpa voluptate.</p>
-                </div>
-              </div>
-            </div> <!-- .accordion-item -->
 
+            {% for info in why_choose_us %}
             <div class="accordion-item">
               <h3 class="mb-0">
-                <a class="btn-block p-3" data-toggle="collapse" href="#collapseTwo" role="button" aria-expanded="false"
-                  aria-controls="collapseTwo">Fresh Food <span class="icon"></span></a>
+                <a class="btn-block p-3" data-toggle="collapse" href="#collapse{{info.id}}" role="button"
+                  aria-expanded="true" aria-controls="collapseOne">{{info.title}} <span class="icon"></span></a>
               </h3>
-              <div id="collapseTwo" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+              <div id="collapse{{info.id}}" class="collapse " aria-labelledby="headingOne" data-parent="#accordion">
                 <div class="p-3">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel ad laborum expedita. Nostrum iure
-                    atque enim quisquam minima distinctio omnis, consequatur aliquam suscipit, quidem, esse aspernatur!
-                    Libero, excepturi animi repellendus porro impedit nihil in doloremque a quaerat enim voluptatum,
-                    perspiciatis, quas dignissimos maxime ut cum reiciendis eius dolorum voluptatem aliquam!</p>
+                  <p>{{info.content}}</p>
                 </div>
               </div>
             </div> <!-- .accordion-item -->
-
-            <div class="accordion-item">
-              <h3 class="mb-0">
-                <a class="btn-block p-3" data-toggle="collapse" href="#collapseThree" role="button"
-                  aria-expanded="false" aria-controls="collapseThree">Friendly Staff <span class="icon"></span></a>
-              </h3>
-              <div id="collapseThree" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
-                <div class="p-3">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel ad laborum expedita. Nostrum iure
-                    atque enim quisquam minima distinctio omnis, consequatur aliquam suscipit, quidem, esse aspernatur!
-                    Libero, excepturi animi repellendus porro impedit nihil in doloremque a quaerat enim voluptatum,
-                    perspiciatis, quas dignissimos maxime ut cum reiciendis eius dolorum voluptatem aliquam!</p>
-                </div>
-              </div>
-            </div> <!-- .accordion-item -->
+            {% endfor %}
 
           </div>
         </div>
       </div>
     </div>
   </div> <!-- .section -->
-
-
-
+  <!-- Why Choose Us Section End -->
 
 </div> <!-- .main-wrap -->
-
-
 {% endblock %}
