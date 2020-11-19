@@ -75,14 +75,16 @@
                 </div> <!-- .col-md-8 -->
                 <div class="col-md-4 sidebar">
 
+            <!-- Search Start -->
                 <div class="sidebar-box">
-                    <form action="#" method="GET" class="search-form">
+                    <form action="{% url 'blog:post_list' %}" method="GET" class="search-form">
                     <div class="form-group">
                         <span class="icon fa fa-search"></span>
                         <input type="text" class="form-control" name="q" value="{{request.Get.q}}" placeholder="Type a keyword and hit enter">
                     </div>
                     </form>
                 </div>
+            <!-- Search End -->    
 
                 <div class="sidebar-box">
                     <div class="categories">

@@ -37,7 +37,7 @@
                             <h3><a href="{% url 'blog:post_detail' post.id %}">{{ post }}</a></h3>
                             <p class="post-meta"><span><span class="fa fa-calendar"></span> {{ post.created }}</span>
                             </p>
-                            <p class="mb-4">{{ post.content }}</p>
+                            <p class="mb-4">{{ post.content|slice:120 }}</p>
                             <p><a href="{% url 'blog:post_detail' post.id %}"
                                     class="btn btn-primary btn-outline-primary btn-sm">Read More</a></p>
                         </div>
