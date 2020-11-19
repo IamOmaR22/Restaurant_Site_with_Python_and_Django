@@ -171,42 +171,20 @@
       </div>
       <div class="row">
         <div class="col-lg-6">
-          <div class="media d-block d-lg-flex mb-5" data-aos="fade-up" data-aos-delay="100">
-            <figure class="mr-4 horizontal">
-              <img src="img/news_1.jpg" alt="Image placeholder" class="img-fluid">
-            </figure>
-            <div class="media-body">
-              <h3><a href="#">Birthday Party Held in Diner Restaurant</a></h3>
-              <p class="post-meta"><span><span class="fa fa-calendar"></span> April 22, 2018</span></p>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto illo delectus</p>
-              <p><a href="#" class="btn btn-primary btn-outline-primary btn-sm">Read More</a></p>
-            </div>
-          </div> <!-- .media -->
 
-          <div class="media d-block d-lg-flex mb-5" data-aos="fade-up">
-            <figure class="mr-4 horizontal">
-              <img src="img/news_2.jpg" alt="Image placeholder" class="img-fluid" data-aos-delay="200">
-            </figure>
-            <div class="media-body">
-              <h3><a href="#">Drinks Overload</a></h3>
-              <p class="post-meta"><span><span class="fa fa-calendar"></span> April 22, 2018</span></p>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto illo delectus</p>
-              <p><a href="#" class="btn btn-primary btn-outline-primary btn-sm">Read More</a></p>
-            </div>
-          </div> <!-- .media -->
-
-          <div class="media d-block d-lg-flex mb-5" data-aos="fade-up" data-aos-delay="300">
-            <figure class="mr-4 horizontal">
-              <img src="img/img_1.jpg" alt="Image placeholder" class="img-fluid">
-            </figure>
-            <div class="media-body">
-              <h3><a href="#">New Recipe: Steak Steak Steak.</a></h3>
-              <p class="post-meta"><span><span class="fa fa-calendar"></span> April 22, 2018</span></p>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto illo delectus</p>
-              <p><a href="#" class="btn btn-primary btn-outline-primary btn-sm">Read More</a></p>
-            </div>
-          </div> <!-- .media -->
-
+          {% for post in posts %}  
+            <div class="media d-block d-lg-flex mb-5" data-aos="fade-up" data-aos-delay="100">
+              <figure class="mr-4 horizontal">
+                <img src="{{ post.image.url }}" alt="Image placeholder" class="img-fluid">
+              </figure>
+              <div class="media-body">
+                <h3><a href="{% url 'blog:post_detail' post.id %}">{{ post.title }}</a></h3>
+                <p class="post-meta"><span><span class="fa fa-calendar"></span> {{post.created}}</span></p>
+                <p>{{post.content|truncatewords:10}}</p>
+                <p><a href="{% url 'blog:post_detail' post.id %}" class="btn btn-primary btn-outline-primary btn-sm">Read More</a></p>
+              </div>
+            </div> <!-- .media -->
+          {% endfor %}  
 
         </div> <!-- .col-md-6 -->
 
