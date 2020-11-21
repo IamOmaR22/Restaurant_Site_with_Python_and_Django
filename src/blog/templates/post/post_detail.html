@@ -2,6 +2,8 @@
 
 {% load static %}
 
+{% load bootstrap4 %}
+
 {% block content %}
       
     <div class="main-wrap">
@@ -65,9 +67,10 @@
                     <h3 class="mb-5">Leave a comment</h3>
                     <form action="#" class="p-5 bg-light" method="POST">
                         {% csrf_token %}
-
-                        {{ comment_form}}                        
-                        <button type="submit" class="btn btn-primary">Comment</button>
+                        {% bootstrap_form form %}
+                        {% buttons %}
+                            <button type="submit" class="btn btn-primary">Leave a comment</button>
+                        {% endbuttons %}
                     </form>
                     </div>
                 </div>
