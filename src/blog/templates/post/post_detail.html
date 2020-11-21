@@ -67,9 +67,9 @@
                     <h3 class="mb-5">Leave a comment</h3>
                     <form action="#" class="p-5 bg-light" method="POST">
                         {% csrf_token %}
-                        {% bootstrap_form form %}
+                        {% bootstrap_form comment_form %}
                         {% buttons %}
-                            <button type="submit" class="btn btn-primary">Leave a comment</button>
+                            <button type="submit" class="btn btn-primary">Leave A Comment</button>
                         {% endbuttons %}
                     </form>
                     </div>
@@ -117,3 +117,4 @@
     
     </div> <!-- .main-wrap -->
 {% endblock %}
+
