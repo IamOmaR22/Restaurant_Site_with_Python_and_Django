@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'meals',
     'reservation',
+    'django_summernote',
     'blog',
     'taggit',
     'aboutus',
@@ -142,3 +143,5 @@ EMAIL_HOST_USER = ''
 EMAIL_HOST_PASSWORD = ''
 EMAIL_USE_TLS = False
 EMAIL_PORT = 1025
+
+X_FRAME_OPTIONS = 'SAMEORIGIN'

@@ -27,6 +27,7 @@ urlpatterns = [
     path('about-us/', include('aboutus.urls', namespace='aboutus')),
     path('contact/', include('contact.urls', namespace='contact')),
     path('', include('home.urls', namespace='home')),
+    path('summernote/', include('django_summernote.urls')),
 ] 
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
