@@ -2,6 +2,8 @@
 
 {% load static %}
 
+{% load bootstrap4 %}
+
 {% block content %}
 
 <!-- Cover image under the navbar Start -->
@@ -93,11 +95,13 @@
 
 
           <form action="" method="POST">
+
             {% csrf_token %}
+            {% bootstrap_form form %}
+            {% buttons %}
+                <button type="submit" class="btn btn-primary">Reserve A Table</button>
+            {% endbuttons %}
             
-            {{form}}
-            
-            <button type="submit" class="btn btn-primary">Reserve A Table</button>
           </form>
 
 
@@ -166,3 +170,4 @@
     </div>  
   </div> <!-- .section -->      
 {% endblock %}
+

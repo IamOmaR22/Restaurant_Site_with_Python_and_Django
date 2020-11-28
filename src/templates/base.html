@@ -36,6 +36,7 @@
       <div class="site-menu-inner">
         <ul class="list-unstyled">
           <li class="active"><a href="/">Home</a></li>
+          <li><a href="{% url 'meals:meal_list' %}">Meals</a></li>
           <li><a href="{% url 'aboutus:aboutus_list' %}">About Us</a></li>
           <!-- <li><a href="menu.html">Our Menu</a></li> -->
           <li><a href="{% url 'blog:post_list' %}">Our Blog</a></li>
@@ -49,6 +50,7 @@
       <div class="row align-items-center">
         <div class="col-5 col-md-3">
             <ul class="list-unstyled social">
+            <li><a href="/"><span class="fa fa-home"></span></a></li>
             <li><a href="#"><span class="fa fa-facebook"></span></a></li>
             <li><a href="#"><span class="fa fa-twitter"></span></a></li>
             <li><a href="#"><span class="fa fa-instagram"></span></a></li>
