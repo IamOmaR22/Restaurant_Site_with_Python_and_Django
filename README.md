@@ -23,13 +23,13 @@ In this project I'll be developing on a my windows machine, but you should be ab
 * Django
 * SQLite 3
 
-<!--
 # Screenshots of the Project
 <p align="center">
-  <img width="660" height="300" src="main/static/front/images/screenshots/a.png">
-  <img width="660" height="300" src="main/static/front/images/screenshots/b.png">
+  <img width="660" height="300" src="src/static/ss/a.png">
+  <img width="660" height="300" src="src/static/ss/b.png">
+  <img width="660" height="300" src="src/static/ss/c.png">
+  <img width="660" height="300" src="src/static/ss/d.png">
 </p>
--->
 
 # What you’ll learn
 - Introductory Django
